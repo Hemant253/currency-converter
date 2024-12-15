@@ -1,4 +1,5 @@
-const apiKey = "4f7d56d24c589029a97514fe";
+require('dotenv').config();
+const apiKey = process.env.API_KEY;
 const btn = document.querySelector("form button");
 /*const fromcurr = document.querySelector(".from select");
 const dropdown = document.querySelectorAll(".dropdown select");
