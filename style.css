@@ -1,138 +1,166 @@
-    * {
-        margin: 0;
-        padding: 0;
-    }
-    
-    body {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        min-height: 100vh;
-        background-color: #B0E0E6;
-    }
-    
-    .container {
-        background-color: #fff;
-        padding: 2rem;
-        border-radius: 1rem;
-        min-height: 45vh;
-        width: 80vh;
-    }
-    
-    form {
-        margin: 2rem 0 1rem 0;
-    }
-    
-    form select,
-    button,
-    input {
-        width: 100%;
-        border: none;
-        outline: none;
-    }
-    
-    form input {
-        border: 2px solid lightgray;
-        font-size: 1rem;
-        height: 2rem;
-        padding-left: 0.5rem;
-    }
-    
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #B0E0E6;
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    background-color: #fff;
+    padding: 2rem;
+    border-radius: 1rem;
+    width: 90%;
+    /* Adjust for smaller screens */
+    max-width: 600px;
+    /* Set a max width for larger screens */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+h2 {
+    text-align: center;
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+form {
+    margin-top: 2rem;
+}
+
+.amount input {
+    border: 2px solid lightgray;
+    font-size: 1rem;
+    height: 2rem;
+    padding: 0.5rem;
+    border-radius: 0.25rem;
+    width: 100%;
+    margin-bottom: 1rem;
+}
+
+.dropdown {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1rem;
+    gap: 10px;
+    flex-wrap: wrap;
+    /* Allow wrapping on smaller screens */
+}
+
+.dropdown i {
+    font-size: 1.5rem;
+    margin: 0.5rem 0;
+}
+
+.select-container {
+    display: flex;
+    align-items: center;
+    border: 1px solid lightgray;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    flex: 1;
+}
+
+.select-container img {
+    max-width: 2rem;
+    margin-right: 0.5rem;
+}
+
+.search-container {
+    position: relative;
+    width: 100%;
+}
+
+.search-container input[type="text"] {
+    width: 100%;
+    padding: 0.5rem;
+    font-size: 0.9rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.suggestions {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #fff;
+    max-height: 150px;
+    overflow-y: auto;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    display: none;
+    z-index: 10;
+}
+
+.suggestions.active {
+    display: block;
+}
+
+.suggestion-item {
+    padding: 10px;
+    cursor: pointer;
+}
+
+.suggestion-item:hover {
+    background-color: #e9ecef;
+}
+
+form button {
+    width: 100%;
+    height: 3rem;
+    background-color: #af4d98;
+    color: #fff;
+    font-size: 1.25rem;
+    cursor: pointer;
+    border: none;
+    border-radius: 0.25rem;
+}
+
+.msg {
+    margin: 1.5rem 0;
+    text-align: center;
+    font-size: 1.2rem;
+    color: #333;
+    overflow-wrap: break-word;
+}
+
+
+/* Media Queries for Responsive Design */
+
+@media (max-width: 768px) {
     .dropdown {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        margin-top: 2rem;
-        gap: 20px;
+        flex-direction: column;
+        /* Stack dropdowns vertically on smaller screens */
     }
-    
     .dropdown i {
-        font-size: 1.5rem;
-        margin-top: 1rem;
-    }
-    
-    .select-container img {
-        max-width: 2.5rem;
-    }
-    
-    .select-container {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: rem;
-        border-radius: 0.5rem;
-        border: 1px solid lightgray;
-        ;
-    }
-    
-    .select-container select {
-        font-size: 1rem;
-        width: auto;
-        margin-left: 1rem;
-    }
-    
-    .msg {
-        margin: 2rem 0 2rem 0;
-        word-wrap: break-word;
-        /* Break long words to fit within the container */
-        text-align: center;
-        /* Center the text */
         font-size: 1.2rem;
-        /* Make the message readable */
-        color: #333;
-        /* Use a neutral color */
-        overflow-wrap: break-word;
-        /* Ensure long text wraps */
     }
-    
+    .container {
+        padding: 1.5rem;
+    }
     form button {
-        height: 3rem;
-        background-color: #af4d98;
-        color: #fff;
-        font-size: 1.25rem;
-        cursor: pointer;
+        font-size: 1rem;
     }
-    
-    .search-container {
-        margin-left: 0.75rem;
-        width: 180px;
-        position: relative;
+}
+
+@media (max-width: 480px) {
+    h2 {
+        font-size: 1.2rem;
     }
-    
-    input[type="text"] {
-        width: 100%;
-        padding: 10px;
-        font-size: 16px;
-        border: 1px solid #ccc;
-        border-radius: 4px;
-        box-sizing: border-box;
+    .select-container img {
+        max-width: 1.5rem;
     }
-    
-    .suggestions {
-        margin-top: 5px;
-        border: 1px solid #ccc;
-        border-radius: 4px;
-        background-color: #fff;
-        max-height: 150px;
-        overflow-y: auto;
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        display: none;
+    form button {
+        height: 2.5rem;
+        font-size: 1rem;
     }
-    
-    .suggestions.active {
-        display: block;
-    }
-    
-    .suggestion-item {
-        padding: 10px;
-        cursor: pointer;
-    }
-    
-    .suggestion-item:hover {
-        background-color: #e9ecef;
-    }
-    
-    .no-results {
-        padding: 10px;
-        color: #999;
-    }
+}
