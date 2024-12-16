@@ -57,7 +57,9 @@ btn.addEventListener("click", (evt) => {
         console.log(fromcountry);
         console.log(tocountry);
 
-        let endpoint = `https://v6.exchangerate-api.com/v6/${apiKey}/pair/${fromcountry}/${tocountry}`;
+        /*let endpoint = `https://v6.exchangerate-api.com/v6/${apiKey}/pair/${fromcountry}/${tocountry}`;*/
+        let endpoint = `http://localhost:3000/api/exchange-rate?from=${fromcountry}&to=${tocountry}`;
+
         fetch(endpoint)
             .then(response => response.json())
             .then(data => {
