@@ -1,5 +1,4 @@
-require('dotenv').config();
-const apiKey = process.env.API_KEY;
+const apiKey = "4f7d56d24c589029a97514fe";
 const btn = document.querySelector("form button");
 /*const fromcurr = document.querySelector(".from select");
 const dropdown = document.querySelectorAll(".dropdown select");
@@ -57,9 +56,7 @@ btn.addEventListener("click", (evt) => {
         console.log(fromcountry);
         console.log(tocountry);
 
-        /*let endpoint = `https://v6.exchangerate-api.com/v6/${apiKey}/pair/${fromcountry}/${tocountry}`;*/
-        let endpoint = `http://localhost:3000/api/exchange-rate?from=${fromcountry}&to=${tocountry}`;
-
+        let endpoint = `https://v6.exchangerate-api.com/v6/${apiKey}/pair/${fromcountry}/${tocountry}`;
         fetch(endpoint)
             .then(response => response.json())
             .then(data => {
